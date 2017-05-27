@@ -22,11 +22,6 @@ public class StockDaoImpl extends HibernateDaoSupport implements StockDao {
     }
 
     @Override
-    public void delete(Stock stock) {
-        getHibernateTemplate().delete(stock);
-    }
-
-    @Override
     public Stock findByStockCode(String stockCode) {
         List list = getHibernateTemplate().find("from Stock where stockCode =  ?", stockCode);
         return (Stock) list.get(0);

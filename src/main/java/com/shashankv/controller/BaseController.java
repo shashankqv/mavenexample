@@ -1,6 +1,9 @@
 package com.shashankv.controller;
 
+import com.shashankv.stock.dao.StockDao;
+import com.shashankv.stock.model.Stock;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +20,9 @@ public class BaseController {
     private final static org.slf4j.Logger logger = LoggerFactory.getLogger(BaseController.class);
     private static int counter = 0;
 
+    @Autowired
+    private StockDao stockDao;
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String welcome(ModelMap model) {
 
@@ -24,6 +30,7 @@ public class BaseController {
         model.addAttribute("counter", ++counter);
         logger.debug("[welcome] counter : {}", counter);
 
+        Stock stock = stockDao.findByStockCode("1");
         // Spring uses InternalResourceViewResolver and return back index.jsp
         return VIEW_INDEX;
 
