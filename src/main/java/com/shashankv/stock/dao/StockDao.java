@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 /**
  * Created by shashank on 14/5/17.
  */
-@Component("testAutowire")
 public interface StockDao {
     void save(Stock stock);
 

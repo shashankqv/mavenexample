@@ -1,7 +1,7 @@
 package com.shashankv.controller;
 
-import com.shashankv.stock.dao.StockDao;
-import com.shashankv.stock.model.Stock;
+import com.shashankv.TestAutowire;
+import com.shashankv.stock.dao.Impl.StockDaoImpl;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -21,9 +21,16 @@ public class BaseController {
     private final static org.slf4j.Logger logger = LoggerFactory.getLogger(BaseController.class);
     private static int counter = 0;
 
+
+    //    @Autowired
+//    @Qualifier("testAutowire")
+//    StockDao stockDao;
     @Autowired
-    @Qualifier("testAutowire")
-    StockDao stockDao;
+    TestAutowire testAutowire;
+
+    @Autowired
+    @Qualifier(value = "stockDaoServiceImpl")
+    StockDaoImpl stockDao;
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)

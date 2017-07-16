@@ -2,14 +2,18 @@ package com.shashankv.stock.dao.Impl;
 
 import com.shashankv.stock.dao.StockDao;
 import com.shashankv.stock.model.Stock;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import com.shashankv.util.CustomHibernateDaoSupport;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
  * Created by shashank on 14/5/17.
  */
-public class StockDaoImpl extends HibernateDaoSupport implements StockDao {
+@Component("stockDaoServiceImpl")
+@Transactional
+public class StockDaoImpl extends CustomHibernateDaoSupport implements StockDao {
 
     @Override
     public void save(Stock stock) {

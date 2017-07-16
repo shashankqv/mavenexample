@@ -13,8 +13,9 @@
     <mvc:annotation-driven>
     </mvc:annotation-driven>
 
-    <context:component-scan base-package="com.shashankv.controller"/>
-    <context:component-scan base-package="com.shashankv.stock"/>
+    <!--<context:component-scan base-package="com.shashankv.controller"/>-->
+    <!--<context:component-scan base-package="com.shashankv.stock"/>-->
+    <context:component-scan base-package="com.shashankv"/>
 
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">

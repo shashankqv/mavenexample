@@ -3,13 +3,17 @@ package com.shashankv.stock.bo.impl;
 import com.shashankv.stock.bo.StockBo;
 import com.shashankv.stock.dao.StockDao;
 import com.shashankv.stock.model.Stock;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by shashank on 14/5/17.
  */
+@Component
 public class StockBoImpl implements StockBo {
 
-    StockDao stockDao;
+    @Autowired
+    private  StockDao stockDao;
 
     public void setStockDao(StockDao stockDao) {
         this.stockDao = stockDao;
